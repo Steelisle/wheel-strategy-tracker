@@ -86,14 +86,14 @@ class PremiumCard(QWidget):
         
         label_widget = QLabel(label)
         label_widget.setStyleSheet(f"""
-            color: {COLORS['text_secondary']};
+            color: {COLORS['text_primary']};
             font-size: 14px;
         """)
         
         value_widget = QLabel(value)
         if is_projection:
             value_widget.setStyleSheet(f"""
-                color: {COLORS['text_muted']};
+                color: {COLORS['text_secondary']};
                 font-size: 13px;
             """)
         else:
@@ -126,26 +126,35 @@ class PremiumCard(QWidget):
         if week_num > 0:
             self.week_label['label'].setText(f"Week {week_num}")
             self.week_label['value'].setText(format_currency(data.get('week', 0)))
+            self.week_label['value'].setStyleSheet(
+                f"color: {COLORS['accent_green']}; font-size: 16px; font-weight: 600;"
+            )
         else:
             self.week_label['label'].setText("Week 1")
             self.week_label['value'].setText("—")
-            self.week_label['value'].setStyleSheet(f"color: {COLORS['text_muted']}; font-size: 16px;")
+            self.week_label['value'].setStyleSheet(f"color: {COLORS['text_secondary']}; font-size: 16px;")
         
         self.month_label['label'].setText(month_name)
         if data.get('month', 0) > 0 or week_num > 0:
             self.month_label['value'].setText(format_currency(data.get('month', 0)))
+            self.month_label['value'].setStyleSheet(
+                f"color: {COLORS['accent_green']}; font-size: 16px; font-weight: 600;"
+            )
         else:
             self.month_label['value'].setText("—")
-            self.month_label['value'].setStyleSheet(f"color: {COLORS['text_muted']}; font-size: 16px;")
+            self.month_label['value'].setStyleSheet(f"color: {COLORS['text_secondary']}; font-size: 16px;")
         
         # Use first trade year for YTD label
         display_year = first_trade.year if first_trade else today.year
         self.ytd_label['label'].setText(f"{display_year} YTD")
         if data.get('ytd', 0) > 0 or week_num > 0:
             self.ytd_label['value'].setText(format_currency(data.get('ytd', 0)))
+            self.ytd_label['value'].setStyleSheet(
+                f"color: {COLORS['accent_green']}; font-size: 16px; font-weight: 600;"
+            )
         else:
             self.ytd_label['value'].setText("—")
-            self.ytd_label['value'].setStyleSheet(f"color: {COLORS['text_muted']}; font-size: 16px;")
+            self.ytd_label['value'].setStyleSheet(f"color: {COLORS['text_secondary']}; font-size: 16px;")
         
         if data.get('projected', 0) > 0:
             self.projected_label['value'].setText(f"Year-End Projection: {format_currency(data.get('projected', 0))}")

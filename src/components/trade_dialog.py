@@ -139,6 +139,8 @@ class TradeEntryDialog(QDialog):
         # Submit button
         submit_btn = QPushButton("Add CSP Trade")
         submit_btn.setObjectName("primary")
+        submit_btn.setStyleSheet(f"color: {COLORS['text_primary']};")
+        submit_btn.setCursor(Qt.PointingHandCursor)
         submit_btn.clicked.connect(lambda: self._submit_trade('CSP'))
         form.addRow("", submit_btn)
         
@@ -198,6 +200,8 @@ class TradeEntryDialog(QDialog):
         # Submit button
         submit_btn = QPushButton("Add Covered Call")
         submit_btn.setObjectName("primary")
+        submit_btn.setStyleSheet(f"color: {COLORS['text_primary']};")
+        submit_btn.setCursor(Qt.PointingHandCursor)
         submit_btn.clicked.connect(lambda: self._submit_trade('CC'))
         form.addRow("", submit_btn)
         
@@ -241,6 +245,8 @@ class TradeEntryDialog(QDialog):
         # Submit button
         submit_btn = QPushButton("Record Assignment")
         submit_btn.setObjectName("primary")
+        submit_btn.setStyleSheet(f"color: {COLORS['text_primary']};")
+        submit_btn.setCursor(Qt.PointingHandCursor)
         submit_btn.clicked.connect(self._submit_assignment)
         form.addRow("", submit_btn)
         
@@ -268,6 +274,8 @@ class TradeEntryDialog(QDialog):
         # Submit button
         submit_btn = QPushButton("Close Trade")
         submit_btn.setObjectName("primary")
+        submit_btn.setStyleSheet(f"color: {COLORS['text_primary']};")
+        submit_btn.setCursor(Qt.PointingHandCursor)
         submit_btn.clicked.connect(self._submit_close)
         form.addRow("", submit_btn)
         
@@ -404,6 +412,7 @@ class QuickTradeButtons(QWidget):
         # Add CSP button
         csp_btn = QPushButton("+ CSP")
         csp_btn.setObjectName("primary")
+        csp_btn.setCursor(Qt.PointingHandCursor)
         csp_btn.setStyleSheet(f"""
             QPushButton#primary {{
                 background-color: {COLORS['accent_green_dark']};
@@ -422,6 +431,7 @@ class QuickTradeButtons(QWidget):
         
         # Add CC button
         cc_btn = QPushButton("+ Covered Call")
+        cc_btn.setCursor(Qt.PointingHandCursor)
         cc_btn.setStyleSheet(f"""
             QPushButton {{
                 background-color: {COLORS['bg_card']};
@@ -441,11 +451,12 @@ class QuickTradeButtons(QWidget):
         
         # More options
         more_btn = QPushButton("More...")
+        more_btn.setCursor(Qt.PointingHandCursor)
         more_btn.setStyleSheet(f"""
             QPushButton {{
                 background-color: transparent;
                 border: none;
-                color: {COLORS['text_secondary']};
+                color: {COLORS['text_primary']};
                 padding: 10px 16px;
             }}
             QPushButton:hover {{

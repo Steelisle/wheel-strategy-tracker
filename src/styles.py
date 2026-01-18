@@ -129,7 +129,7 @@ QPushButton {{
 
 QPushButton:hover {{
     background-color: {COLORS['bg_hover']};
-    border-color: {COLORS['text_muted']};
+    border-color: {COLORS['text_primary']};
 }}
 
 QPushButton:pressed {{
@@ -163,6 +163,7 @@ QPushButton#tab {{
     border-radius: 4px;
     padding: 6px 12px;
     color: {COLORS['text_secondary']};
+    font-weight: 400;
 }}
 
 QPushButton#tab:hover {{
@@ -171,8 +172,9 @@ QPushButton#tab:hover {{
 }}
 
 QPushButton#tab:checked {{
-    background-color: {COLORS['accent_green_dark']};
-    color: {COLORS['bg_dark']};
+    background-color: {COLORS['bg_card']};
+    color: {COLORS['text_primary']};
+    font-weight: 600;
 }}
 
 /* Input Fields */

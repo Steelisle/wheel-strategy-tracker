@@ -24,8 +24,8 @@ class RankingItem(QWidget):
         
         # Container styling
         bg_color = COLORS['accent_green_dark'] if highlighted else COLORS['bg_card']
-        text_color = COLORS['bg_dark'] if highlighted else COLORS['text_primary']
-        perf_color = COLORS['bg_dark'] if highlighted else (COLORS['accent_green'] if performance >= 0 else COLORS['accent_red'])
+        text_color = COLORS['text_primary']
+        perf_color = COLORS['accent_green'] if performance >= 0 else COLORS['accent_red']
         
         self.setStyleSheet(f"""
             QWidget {{
